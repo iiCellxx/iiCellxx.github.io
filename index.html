@@ -3,41 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cel Rick D Almario</title>
+    <title>Cel Rick D Almario - Portfolio</title>
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
-    <header>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
         <div class="header-container">
-            <h1>Cel Rick D Almario</h1>
-            <img src="IMG/profile-picture.jpg" alt="Profile Picture">
+            <img src="IMG/profile-picture.jpg" alt="Cel Rick D Almario Profile Picture">
+            <div>
+                <h1>Cel Rick D Almario</h1>
+                <p class="tagline">Developer | Creator | Student</p>
+            </div>
         </div>
     </header>
 
-    <div class="body-container">
-        <div class="social-media-container">
-            <h2>Social Media Links</h2>
-            <ul class="social-links">
-                <li><a href="https://web.facebook.com/profile.php?id=61558985755118" target="_blank">Facebook</a></li>
-                <li><a href="https://www.instagram.com/cellrhick/" target="_blank">Instagram</a></li>
-                <!-- Add more social media links as needed -->
-            </ul>
-        </div>
-
-        <div class="works-container">
-            <h2>Google Collab Works</h2>
-            <div class="work-item">
-                <h3>CSEL 302</h3>
-                <a href="https://github.com/iiCellxx/CSEL-302" target="_blank">CSEL 302</a>
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Hello! I'm Cel Rick D Almario, a passionate developer and student exploring the world of programming and technology. I'm currently studying and working on various projects that challenge my skills and expand my knowledge.</p>
+                <p>I specialize in web development and enjoy creating innovative solutions to complex problems. Through my coursework and personal projects, I'm constantly learning new technologies and best practices in software development.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, collaborating with peers, or sharing my journey on social media.</p>
             </div>
-           
-            <!-- Add more work items as needed -->
-        </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            
+            <!-- Add Project Form -->
+            <div class="add-form">
+                <h3>Add New Project</h3>
+                <input type="text" id="projectTitle" placeholder="Project Title">
+                <input type="text" id="projectDesc" placeholder="Project Description">
+                <input type="text" id="projectLink" placeholder="Project Link (URL)">
+                <input type="text" id="projectImage" placeholder="Image URL or Emoji (e.g., 🚀)">
+                <button onclick="addProject()">Add Project</button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social">
+            <h2>Connect With Me</h2>
+            
+            <!-- Add Social Link Form -->
+            <div class="add-form">
+                <h3>Add Social Link</h3>
+                <input type="text" id="socialName" placeholder="Platform Name (e.g., LinkedIn)">
+                <input type="text" id="socialLink" placeholder="Profile URL">
+                <input type="text" id="socialIcon" placeholder="Icon (emoji, e.g., 💼)">
+                <button onclick="addSocialLink()">Add Link</button>
+            </div>
+
+            <ul class="social-links" id="socialLinks">
+                <!-- Social links will be loaded here -->
+            </ul>
+        </section>
     </div>
 
-    <footer>
-        <p>Created by Cel Rick and ChatGPT</p>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:almariocelrick@gmail.com">almariocelrick@gmail.com</a></p>
+                <p>🌐 Website: <a href="https://iicellxx.github.io" target="_blank">iiCellxx.github.io</a></p>
+            </div>
+            <div class="footer-credit">
+                <p>&copy; 2025 Cel Rick D Almario. All rights reserved.</p>
+                <p>Created with passion by Cel Rick</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="JS/script.js"></script>
 </body>
 </html>
