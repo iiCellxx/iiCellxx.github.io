@@ -35,16 +35,16 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm <span>Cel Rick D Almario</span></h1>
-      <p>Robotics | Computer Vision | PC Troubleshooting | Developer | Vlogger</p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="assets/resume.pdf" class="btn-secondary" target="_blank">Download CV</a>
-      </div>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Hi, I'm <span>Cel Rick D Almario</span></h1>
+    <p>Robotics | Computer Vision | PC Troubleshooting | Developer | Vlogger</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <button class="btn-secondary" id="view-cv-btn">Download CV</button>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- About Section -->
   <section id="about" class="section">
@@ -243,6 +243,28 @@
       <i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+639391400256">0939 140 0256</a>
     </p>
   </section>
+
+  <!-- Password Modal -->
+<div id="cv-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Enter Password to View CV</h3>
+      <span class="close">×</span>
+    </div>
+    <div class="modal-body">
+      <input type="password" id="cv-password" placeholder="Password" class="password-input" />
+      <button id="submit-password" class="btn-primary">Unlock CV</button>
+      <p class="error-msg" id="error-msg"></p>
+      
+      <p class="contact-owner-msg" id="contact-owner-msg" style="display: none;">
+        <strong>Need access?</strong> Contact me:<br>
+        <a href="mailto:almariocelrick@gmail.com">almariocelrick@gmail.com</a><br>
+        <a href="tel:+639391400256">0939 140 0256</a>
+      </p>
+    </div>
+  </div>
+</div>
+
 
   <!-- Footer -->
   <footer>
