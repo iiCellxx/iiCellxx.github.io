@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cel Rick D Almario - Developer & Tech Support</title>
+  <meta name="description" content="Robotics | Computer Vision | PC Troubleshooting | Face Emotion Detection | Tech Vlogger">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Starfield Background -->
+  <div class="starfield" id="starfield"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Cel Rick</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#dataset" class="nav-link">Dataset</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#services" class="nav-link">Troubleshooting</a></li>
+        <li><a href="#history" class="nav-link">Customer History</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Cel Rick D Almario</span></h1>
+      <p>Robotics | Computer Vision | PC Troubleshooting | Developer | Vlogger</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="assets/resume.pdf" class="btn-secondary" target="_blank">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <img src="assets/img/profile.jpg" alt="Cel Rick D Almario" class="about-img"/>
+      <div class="about-text">
+        <p><strong>Kuya Cel</strong> – proud tech lover who builds ESP32 robots, trains AI on Roboflow, and fixes PCs. I vlog every fix and project on Facebook.</p>
+        <p>From OS installs to SSD upgrades, emotion AI datasets to live YOLOv8 detection – I do it all, and I teach it too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section bg-dark">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <!-- Project 1: SentiVision -->
+      <div class="project-card">
+        <img src="assets/img/project1.png" alt="SentiVision Dashboard"/>
+        <div class="project-info">
+          <h3>SentiVision</h3>
+          <p>Web-based real-time emotion & sentiment analysis from CCTV feeds in Pila, Laguna restaurants. Detects 8+ emotions using custom Roboflow dataset, with live charts and PDF reports.</p>
+          <div class="badges">
+            <span class="badge">Flask</span>
+            <span class="badge">YOLOv8</span>
+            <span class="badge">RTSP</span>
+            <span class="badge">Chart.js</span>
+            <span class="badge">SQLite</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/iiCellxx/SentiVision" target="_blank"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: SiclonCyberBot -->
+      <div class="project-card">
+        <img src="assets/img/project2.png" alt="SiclonCyberBot"/>
+        <div class="project-info">
+          <h3>SiclonCyberBot</h3>
+          <p>WiFi-controlled 2WD robot with ESP32, RemoteXY, and ultrasonic obstacle detection.</p>
+          <div class="badges">
+            <span class="badge">ESP32</span>
+            <span class="badge">Arduino</span>
+            <span class="badge">RemoteXY</span>
+            <span class="badge">C++</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/iiCellxx/ESP32-Activity-Progress" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset Section -->
+  <section id="dataset" class="section bg-dark">
+    <h2>Dataset Created By Me</h2>
+    <p>Face Emotion Detection Dataset on Roboflow – My custom collection for AI emotion recognition.</p>
+    <div class="dataset-grid">
+      <div class="dataset-card">
+        <img src="assets/img/dataset.png" alt="Dataset Preview" class="dataset-img"/>
+        <div class="dataset-info">
+          <h3>Face Emotion Detection By Cel Rick D Almario</h3>
+          <p>A high-quality dataset for training emotion detection models. Includes diverse facial expressions captured in real-world conditions, annotated for 7+ emotion classes (e.g., happy, sad, angry, neutral).</p>
+          <ul class="dataset-features">
+            <li><i class="fas fa-images"></i> 10,000+ annotated images</li>
+            <li><i class="fas fa-brain"></i> Compatible with YOLOv8, TensorFlow</li>
+            <li><i class="fas fa-chart-line"></i> High accuracy: mAP@0.5 > 0.85</li>
+            <li><i class="fas fa-download"></i> Ready for download & training</li>
+          </ul>
+          <a href="https://app.roboflow.com/cell-jff2n/face-emotion-detection-by-cel-rick-almario-zemk5/models" target="_blank" class="btn-primary dataset-btn">View on Roboflow</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+      <div class="skill-item"><i class="fas fa-microchip"></i> ESP32</div>
+      <div class="skill-item"><i class="fas fa-tools"></i> PC Repair</div>
+      <div class="skill-item"><i class="fas fa-hdd"></i> Data Recovery</div>
+      <div class="skill-item"><i class="fas fa-bug"></i> Malware Removal</div>
+      <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
+      <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+      <div class="skill-item"><i class="fas fa-database"></i> Roboflow</div>
+    </div>
+  </section>
+
+  <!-- Computer Troubleshooting & Repairing Skills -->
+  <section id="services" class="section bg-dark">
+    <h2>Computer Troubleshooting & Repairing Skills</h2>
+    <p>I fix, upgrade, and optimize PCs – fast, reliable, and affordable.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-hard-drive"></i>
+        <h3>OS Installation</h3>
+        <p>Linux (Ubuntu, Mint) or Windows (7, 10, 11) – clean install with updates.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-copy"></i>
+        <h3>OS Cloning</h3>
+        <p>Clone your old HDD to new SSD in minutes – no data loss.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-download"></i>
+        <h3>Software & Driver Install</h3>
+        <p>Install apps, drivers, browsers, antivirus – everything you need.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-file-word"></i>
+        <h3>Microsoft Office</h3>
+        <p>Office 2019/2021 with safe activator – Word, Excel, PowerPoint.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-headset"></i>
+        <h3>TeamViewer Support</h3>
+        <p>Remote fix via TeamViewer – I control your PC and solve issues live.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-microchip"></i>
+        <h3>SSD & RAM Upgrade</h3>
+        <p>Upgrade to SSD for speed, add RAM for multitasking. I bring parts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer History with 9:16 Reels -->
+  <section id="history" class="section">
+    <h2>Customer History & Success Stories</h2>
+    <p>See real fixes in action – watch me troubleshoot live!</p>
+
+    <div class="history-grid">
+      <!-- Client 1 -->
+      <div class="history-card">
+        <h3>Client: Anonymous – "PC Won't Boot"</h3>
+        <p>Reinstalled Windows 10 from scratch, backed up all personal files (photos, documents), and restored data safely. PC now runs like new.</p>
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F795294933102525&show_text=false&width=560" 
+            allowfullscreen="true">
+          </iframe>
+        </div>
+        <small>Watch the full OS reinstall & backup process</small>
+      </div>
+
+      <!-- Client 2 -->
+      <div class="history-card">
+        <h3>Client: Alyas Kirt – "Fresh Start Needed"</h3>
+        <p>Reinstalled Windows 10, activated Microsoft Office 2019, and set up drivers. Clean, fast, and ready for work.</p>
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F842310798243326&show_text=false&width=560" 
+            allowfullscreen="true">
+          </iframe>
+        </div>
+        <small>Watch the full OS + Office install</small>
+      </div>
+
+      <!-- Client 3: Kuya Hack -->
+      <div class="history-card">
+        <h3>Client: Kuya Hack – "Remote Software Setup"</h3>
+        <p>Provided TeamViewer support: remotely connected, installed required software on his PC, and configured everything step-by-step. Quick and hassle-free fix.</p>
+        <div class="video-container">
+          <iframe 
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F17D592YFt4%2F&show_text=false&width=560" 
+            allowfullscreen="true">
+          </iframe>
+        </div>
+        <small>Watch the full TeamViewer session (#KuyaCel #TeamViewer #Repair)</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-dark">
+    <h2>Get in Touch</h2>
+    <p>Need your PC fixed, AI project, or robotics help? Message me!</p>
+    <div class="social-links">
+      <a href="mailto:almariocelrick@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/cel-rick-almario-a19593288/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/iiCellxx" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.facebook.com/cellrhick/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="tel:+639391400256" title="Call: 0939 140 0256"><i class="fas fa-phone"></i></a>
+    </div>
+    <p class="contact-info">
+      <i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:almariocelrick@gmail.com">almariocelrick@gmail.com</a><br>
+      <i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+639391400256">0939 140 0256</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Cel Rick D Almario. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
