@@ -157,3 +157,53 @@ window.addEventListener('click', (e) => {
     submitBtn.textContent = 'Unlock CV';
   }
 });
+
+// Certifications Slider
+const certContainer = document.querySelector('.certificates-container');
+const certCards = document.querySelectorAll('.cert-card');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const dotsContainer = document.querySelector('.slider-dots');
+
+let currentIndex = 0;
+const totalCards = certCards.length;
+
+// Create dots
+certCards.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+function updateSlider() {
+  const offset = -currentIndex * (320 + 24); // 300px card + 24px gap
+  certContainer.style.transform = `translateX(${offset}px)`;
+  
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+}
+
+function goToSlide(index) {
+  currentIndex = index;
+  updateSlider();
+}
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % totalCards;
+  updateSlider();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+  updateSlider();
+});
+
+// Auto-play (optional)
+// setInterval(() => {
+//   nextBtn.click();
+// }, 5000);
