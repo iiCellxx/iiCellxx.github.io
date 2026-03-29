@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
   <!-- Starfield Background -->
   <div class="starfield" id="starfield"></div>
   <!-- Navigation -->
@@ -23,7 +25,6 @@
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#services" class="nav-link">Troubleshooting</a></li>
         <li><a href="#certifications" class="nav-link">Certifications</a></li>
-        <li><a href="#history" class="nav-link">Customer History</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <div class="hamburger">
@@ -58,10 +59,17 @@
   <!-- Projects Section -->
   <section id="projects" class="section bg-dark">
     <h2>Featured Projects</h2>
+    
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI & CV</button>
+      <button class="filter-btn" data-filter="robotics">Robotics</button>
+    </div>
+
     <div class="projects-grid">
       <!-- Project 1: SentiVision -->
-      <div class="project-card">
-        <img src="assets/img/project1.png" alt="SentiVision Dashboard"/>
+      <div class="project-card" data-category="ai">
+        <img src="assets/img/project1.png" alt="SentiVision Dashboard" loading="lazy"/>
         <div class="project-info">
           <h3>SentiVision</h3>
           <p>Web-based real-time emotion & sentiment analysis from CCTV feeds in Pila, Laguna restaurants. Detects 8+ emotions using custom Roboflow dataset, with live charts and PDF reports.</p>
@@ -79,8 +87,8 @@
       </div>
 
       <!-- Project 2: Fire Alarm System Computer Vision -->
-      <div class="project-card">
-        <img src="assets/img/project3.png" alt="SentiVision Dashboard"/>
+      <div class="project-card" data-category="ai">
+        <img src="assets/img/project3.png" alt="Fire Alarm System" loading="lazy"/>
         <div class="project-info">
           <h3>Fire Alarm System CV</h3>
           <p>AI-powered real-time fire and smoke detection system using YOLOv12 deep learning. Features live RTSP camera monitoring, instant visual/audio alerts, interactive detection charts, and comprehensive database reporting. Built with Python Flask and OpenCV for reliable 24/7 safety monitoring. Developed at Laguna State Polytechnic University - Sta. Cruz Campus.</p>
@@ -97,8 +105,8 @@
       </div>
 
       <!-- Project 3: SiclonCyberBot -->
-      <div class="project-card">
-        <img src="assets/img/project2.png" alt="SiclonCyberBot"/>
+      <div class="project-card" data-category="robotics">
+        <img src="assets/img/project2.png" alt="SiclonCyberBot" loading="lazy"/>
         <div class="project-info">
           <h3>SiclonCyberBot</h3>
           <p>WiFi-controlled 2WD robot with ESP32, RemoteXY, and ultrasonic obstacle detection.</p>
@@ -123,7 +131,7 @@
     <p>Face Emotion Detection Dataset on Roboflow – My custom collection for AI emotion recognition.</p>
     <div class="dataset-grid">
       <div class="dataset-card">
-        <img src="assets/img/dataset.png" alt="Dataset Preview" class="dataset-img"/>
+        <img src="assets/img/dataset.png" alt="Dataset Preview" class="dataset-img" loading="lazy"/>
         <div class="dataset-info">
           <h3>Face Emotion Detection By Cel Rick D Almario</h3>
           <p>A high-quality dataset for training emotion detection models. Includes diverse facial expressions captured in real-world conditions, annotated for 7+ emotion classes (e.g., happy, sad, angry, neutral).</p>
@@ -201,70 +209,70 @@
 
       <div class="certificates-container">
          <div class="cert-card">
-          <img src="assets/img/cert10.png" alt="Certificate 10" />
+          <img src="assets/img/cert10.png" alt="Certificate 10" loading="lazy" />
           <div class="cert-info">
             <h3>Introduction To Extended Reality</h3>
             <p>Issued by DICT Region X | Nov 18, 2025</p>
           </div>
           </div>
          <div class="cert-card">
-          <img src="assets/img/cert9.png" alt="Certificate 9" />
+          <img src="assets/img/cert9.png" alt="Certificate 9" loading="lazy" />
           <div class="cert-info">
             <h3>Data Privacy Awareness</h3>
             <p>Issued by DICT Region X | Nov 17, 2025</p>
           </div>
           </div>
         <div class="cert-card">
-          <img src="assets/img/cert1.jpg" alt="Certificate 1" />
+          <img src="assets/img/cert1.jpg" alt="Certificate 1" loading="lazy" />
           <div class="cert-info">
             <h3>CCS Robotics Competition</h3>
             <p>Issued by CCS Department | July 30, 2025</p>
           </div>
           </div>
           <div class="cert-card">
-          <img src="assets/img/cert6.jpg" alt="Certificate 6" />
+          <img src="assets/img/cert6.jpg" alt="Certificate 6" loading="lazy" />
           <div class="cert-info">
             <h3>Usage Of AI in Higher Education for Faculty and Students</h3>
             <p>Issued by Manila Central University | March 2025</p>
           </div>
         </div>
           <div class="cert-card">
-          <img src="assets/img/cert8.png" alt="Certificate 8" />
+          <img src="assets/img/cert8.png" alt="Certificate 8" loading="lazy" />
           <div class="cert-info">
             <h3>AI translations: The Current Trends in AI Translation for Linguistic Accuracy and Cross-Language Communication</h3>
             <p>Issued by University of San Jose-Recoletos | March 2025</p>
           </div>
         </div>
         <div class="cert-card">
-          <img src="assets/img/cert2.jpg" alt="Certificate 2" />
+          <img src="assets/img/cert2.jpg" alt="Certificate 2" loading="lazy" />
           <div class="cert-info">
             <h3>Station Champion - Chicken Expert</h3>
             <p>Issued by Mcdonalds Santacruz | September 2022</p>
           </div>
         </div>
         <div class="cert-card">
-          <img src="assets/img/cert3.jpg" alt="Certificate 3" />
+          <img src="assets/img/cert3.jpg" alt="Certificate 3" loading="lazy" />
           <div class="cert-info">
             <h3>ROTC Summer Camp Training MS 3 CY 2023</h3>
             <p>Issued by 4RCDG | July 2023</p>
           </div>
         </div>
         <div class="cert-card">
-          <img src="assets/img/cert4.jpg" alt="Certificate 4" />
+          <img src="assets/img/cert4.jpg" alt="Certificate 4" loading="lazy" />
           <div class="cert-info">
             <h3>Advance ROTC Academic Phase Training MS 31-32 CY 2023</h3>
             <p>Issued by 4RCDG | July 2023</p>
           </div>
         </div>
           <div class="cert-card">
-          <img src="assets/img/cert5.jpg" alt="Certificate 5" />
+          <img src="assets/img/cert5.jpg" alt="Certificate 5" loading="lazy" />
           <div class="cert-info">
             <h3>Dugong Kapiyu Blood Donation Service</h3>
             <p>Issued by RedCross </p>
           </div>
           </div>
           <div class="cert-card">
-          <img src="assets/img/cert7.png" alt="Certificate 7" />
+          <img src="assets/img/cert7.png" alt="Certificate 7" loading="lazy" />
           <div class="cert-info">
             <h3>Boto Mo Kinabukasan Mo</h3>
             <p>Issued by Aidan Kurt Orig | April 2025</p>
@@ -277,51 +285,6 @@
       <!-- Dots will be generated by JS -->
     </div>
   </section>
-  <!-- Customer History with 9:16 Reels -->
-<section id="history" class="section">
-  <h2>Customer History & Success Stories</h2>
-  <p>See real fixes in action – watch me troubleshoot live!</p>
-  <div class="history-grid">
-    <!-- Newest: OS Installation Again -->
-    <div class="history-card">
-      <h3>OS Installation Again #KuyaCel</h3>
-      <p>Fresh and clean OS installation for laptop/PC – optimized and ready to use.</p>
-      <div class="video-container">
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F855106284058436&show_text=false&width=560"
-          allowfullscreen="true">
-        </iframe>
-      </div>
-      <small>Watch the full process (#KuyaCel)</small>
-    </div>
-
-    <!-- Previous new: OS installation Laptop and PC -->
-    <div class="history-card">
-      <h3>OS installation Laptop and PC #KuyaCel</h3>
-      <p>Professional OS installation service for laptops and PCs – clean, optimized, and ready to use.</p>
-      <div class="video-container">
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1189038206510506&show_text=false&width=560"
-          allowfullscreen="true">
-        </iframe>
-      </div>
-      <small>Watch the full OS installation process (#KuyaCel)</small>
-    </div>
-
-    <!-- Existing Client 5 -->
-    <div class="history-card">
-      <h3>Client 5: Windows 10 Enterprise Lighter Version For Low Specs</h3>
-      <p>Installed optimized Windows 10 Enterprise LTSC (lightweight version) on a low-spec PC. Removed bloatware, boosted speed dramatically – perfect for old machines.</p>
-      <div class="video-container">
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1204299758247156&show_text=false&width=560"
-          allowfullscreen="true">
-        </iframe>
-      </div>
-      <small>Watch the full lightweight Windows install (#kuyacel #windows10 #lowspec)</small>
-    </div>
-  </div>
-</section>
   <!-- Contact Section -->
   <section id="contact" class="section bg-dark">
     <h2>Get in Touch</h2>
@@ -365,4 +328,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-

@@ -9,7 +9,7 @@ Real-time AI projects (SentiVision – emotion analysis from CCTV, Fire Alarm CV
 Custom Face Emotion Detection dataset (10k+ images, public on Roboflow)
 WiFi-controlled robots with ESP32 + RemoteXY
 Full-stack PC repair: OS reinstalls, SSD/RAM upgrades, cloning, lightweight Windows for low-spec PCs, remote TeamViewer support
-Vlogging every fix (9:16 reels with real customers)
+Vlogging every fix and project on Facebook
 
 Tech Stack & Tools
 Python • Flask • YOLOv8/v12 • OpenCV • Roboflow • ESP32 • Arduino • JavaScript • Git • Windows/Linux • Hardware Upgrades

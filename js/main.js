@@ -1,7 +1,10 @@
 // Create Star Wars Starfield
+let stars = [];
+let mouseParallaxTick = false;
+
 function createStarfield() {
   const starfield = document.getElementById('starfield');
-  const starCount = 200;
+  const starCount = window.innerWidth < 768 ? 80 : 200;
   
   for (let i = 0; i < starCount; i++) {
     const star = document.createElement('div');
@@ -21,7 +24,47 @@ function createStarfield() {
     star.style.animationDelay = delay + 's';
     
     starfield.appendChild(star);
+    stars.push({ el: star, x: left, y: top });
   }
+}
+
+// Interactive Starfield Parallax
+window.addEventListener('mousemove', (e) => {
+  if (!mouseParallaxTick) {
+    window.requestAnimationFrame(() => {
+      const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+      const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+      
+      stars.forEach(star => {
+        star.el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+      mouseParallaxTick = false;
+    });
+    mouseParallaxTick = true;
+  }
+});
+
+// Text Scramble Effect
+function scrambleText(element) {
+  const originalText = element.innerText;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+';
+  let iteration = 0;
+  
+  const interval = setInterval(() => {
+    element.innerText = originalText
+      .split("")
+      .map((letter, index) => {
+        if (index < iteration) return originalText[index];
+        return characters[Math.floor(Math.random() * characters.length)];
+      })
+      .join("");
+    
+    if (iteration >= originalText.length) {
+      clearInterval(interval);
+      element.innerText = originalText;
+    }
+    iteration += 1 / 3;
+  }, 30);
 }
 
 // Hamburger Menu
@@ -51,6 +94,12 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+      // Trigger scramble on h2 inside section
+      const h2 = entry.target.querySelector('h2');
+      if (h2 && !h2.dataset.scrambled) {
+        scrambleText(h2);
+        h2.dataset.scrambled = "true";
+      }
     }
   });
 }, observerOptions);
@@ -79,18 +128,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Add parallax effect to hero section
+// Scroll Progress Bar
 window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const hero = document.querySelector('.hero-content');
-  if (hero) {
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    hero.style.opacity = 1 - (scrolled / 700);
-  }
+  const scrollProgress = document.querySelector('.scroll-progress');
+  const scrollPx = document.documentElement.scrollTop;
+  const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollPx / winHeightPx) * 100;
+  scrollProgress.style.width = scrolled + '%';
 });
 
+// Add parallax effect to hero section
+const hero = document.querySelector('.hero-content');
+if (hero) {
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth < 768) return; // Disable parallax on mobile
+    const scrolled = window.scrollY;
+    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    hero.style.opacity = 1 - (scrolled / 700);
+  });
+}
+
 // CV Password Protection
-const CV_PASSWORD = "cralmario07";
+// SHA-256 hash of "cralmario07"
+const CV_HASH = "5e33d0628e93297a7a51c727038e11a3e5c94d0c7540670868f0290196881c62";
+
+async function hashPassword(string) {
+  const utf8 = new TextEncoder().encode(string);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 let failCount = 0;
 
 const cvBtn = document.getElementById('view-cv-btn');
@@ -115,13 +183,17 @@ cvBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
   failCount = 0;
+  submitBtn.disabled = false;
+  submitBtn.style.opacity = '1';
+  submitBtn.textContent = 'Unlock CV';
 });
 
 // Submit password
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', async () => {
   const input = passwordInput.value.trim();
+  const hashedInput = await hashPassword(input);
   
-  if (input === CV_PASSWORD) {
+  if (hashedInput === CV_HASH) {
     window.open('assets/resume.pdf', '_blank');
     modal.style.display = 'none';
     failCount = 0;
@@ -141,7 +213,7 @@ submitBtn.addEventListener('click', () => {
 });
 
 // Enter key
-passwordInput.addEventListener('keypress', (e) => {
+passwordInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     submitBtn.click();
   }
@@ -180,7 +252,10 @@ certCards.forEach((_, i) => {
 const dots = document.querySelectorAll('.dot');
 
 function updateSlider() {
-  const offset = -currentIndex * (320 + 24); // 300px card + 24px gap
+  const card = certCards[0];
+  const cardWidth = card.offsetWidth;
+  const gap = parseInt(window.getComputedStyle(certContainer).gap) || 0;
+  const offset = -currentIndex * (cardWidth + gap);
   certContainer.style.transform = `translateX(${offset}px)`;
   
   dots.forEach((dot, i) => {
@@ -201,6 +276,46 @@ nextBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + totalCards) % totalCards;
   updateSlider();
+});
+
+// Recalculate slider on resize to prevent alignment issues
+window.addEventListener('resize', () => {
+  updateSlider();
+});
+
+// Touch Support for Slider
+let touchStartX = 0;
+let touchEndX = 0;
+
+certContainer.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+certContainer.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  if (touchStartX - touchEndX > 50) nextBtn.click();
+  if (touchEndX - touchStartX > 50) prevBtn.click();
+}, { passive: true });
+
+// Project Filtering Logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const filter = btn.getAttribute('data-filter');
+    
+    projectCards.forEach(card => {
+      if (filter === 'all' || card.getAttribute('data-category') === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
 });
 
 // Auto-play (optional)
