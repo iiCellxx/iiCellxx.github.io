@@ -46,6 +46,8 @@ body {
   background: white;
   border-radius: 50%;
   animation: twinkle linear infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes twinkle {
@@ -154,6 +156,7 @@ body::before {
 }
 .hero-content {
   animation: fadeInUp 1s ease-out;
+  will-change: transform, opacity;
 }
 @keyframes fadeInUp {
   from { 
@@ -180,7 +183,6 @@ body::before {
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 3s linear infinite;
 }
 @keyframes shimmer {
   to { background-position: 200% center; }
@@ -342,6 +344,7 @@ body::before {
   transition: transform 0.4s, box-shadow 0.4s, opacity 0.4s, visibility 0.4s;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.05);
+  will-change: transform;
   cursor: pointer;
   width: 100%;
   max-width: 400px;

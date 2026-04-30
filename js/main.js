@@ -1,7 +1,10 @@
 // Create Star Wars Starfield
 let stars = [];
 let mouseParallaxTick = false;
+let scrollTick = false;
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+const scrollProgress = document.querySelector('.scroll-progress');
+const hero = document.querySelector('.hero-content');
 
 function createStarfield() {
   const starfield = document.getElementById('starfield');
@@ -32,6 +35,31 @@ function createStarfield() {
   }
 }
 
+// Optimized Scroll Handler
+function handleScroll() {
+  if (!scrollTick) {
+    window.requestAnimationFrame(() => {
+      const scrollPx = document.documentElement.scrollTop;
+      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      
+      // Update Progress Bar
+      if (scrollProgress) {
+        const scrolled = (scrollPx / winHeightPx) * 100;
+        scrollProgress.style.width = scrolled + '%';
+      }
+
+      // Update Hero Parallax
+      if (hero && window.innerWidth >= 768) {
+        hero.style.transform = `translate3d(0, ${scrollPx * 0.5}px, 0)`;
+        hero.style.opacity = Math.max(0, 1 - (scrollPx / 700));
+      }
+
+      scrollTick = false;
+    });
+    scrollTick = true;
+  }
+}
+
 // Interactive Starfield Parallax
 window.addEventListener('mousemove', (e) => {
   if (isTouchDevice) return; // Skip heavy DOM updates on mobile touch
@@ -42,7 +70,7 @@ window.addEventListener('mousemove', (e) => {
       const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
       
       stars.forEach(star => {
-        star.el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        star.el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
       });
       mouseParallaxTick = false;
     });
@@ -50,28 +78,7 @@ window.addEventListener('mousemove', (e) => {
   }
 });
 
-// Text Scramble Effect
-function scrambleText(element) {
-  const originalText = element.innerText;
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+';
-  let iteration = 0;
-  
-  const interval = setInterval(() => {
-    element.innerText = originalText
-      .split("")
-      .map((letter, index) => {
-        if (index < iteration) return originalText[index];
-        return characters[Math.floor(Math.random() * characters.length)];
-      })
-      .join("");
-    
-    if (iteration >= originalText.length) {
-      clearInterval(interval);
-      element.innerText = originalText;
-    }
-    iteration += 1 / 3;
-  }, 30);
-}
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 // Hamburger Menu
 const hamburger = document.querySelector('.hamburger');
@@ -100,13 +107,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Trigger scramble on h2 inside section
-      const h2 = entry.target.querySelector('h2');
-      if (h2 && !h2.dataset.scrambled) {
-        scrambleText(h2);
-        h2.dataset.scrambled = "true";
-        observer.unobserve(entry.target); // Performance: stop observing once triggered
-      }
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
@@ -136,25 +137,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Scroll Progress Bar
-window.addEventListener('scroll', () => {
-  const scrollProgress = document.querySelector('.scroll-progress');
-  const scrollPx = document.documentElement.scrollTop;
-  const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollPx / winHeightPx) * 100;
-  scrollProgress.style.width = scrolled + '%';
-});
-
-// Add parallax effect to hero section
-const hero = document.querySelector('.hero-content');
-if (hero) {
-  window.addEventListener('scroll', () => {
-    if (window.innerWidth < 768) return; // Disable parallax on mobile
-    const scrolled = window.scrollY;
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    hero.style.opacity = 1 - (scrolled / 700);
-  });
-}
-
 // CV Password Protection
 // SHA-256 hash of "cralmario07"
 const CV_HASH = "5e33d0628e93297a7a51c727038e11a3e5c94d0c7540670868f0290196881c62";
@@ -201,7 +183,7 @@ submitBtn.addEventListener('click', async () => {
   const hashedInput = await hashPassword(input);
   
   if (hashedInput === CV_HASH) {
-    window.open('assets/resume.pdf', '_blank');
+    window.open('assets/CV-ALMARIO.docx', '_blank');
     modal.style.display = 'none';
     failCount = 0;
   } else {
@@ -239,7 +221,7 @@ window.addEventListener('click', (e) => {
 
 // Certifications Slider
 const certContainer = document.querySelector('.certificates-container');
-const certCards = document.querySelectorAll('.cert-card');
+const certCards = certContainer ? certContainer.querySelectorAll('.cert-card') : [];
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 const dotsContainer = document.querySelector('.slider-dots');
