@@ -1,11 +1,15 @@
 // Create Star Wars Starfield
 let stars = [];
 let mouseParallaxTick = false;
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 function createStarfield() {
   const starfield = document.getElementById('starfield');
-  const starCount = window.innerWidth < 768 ? 80 : 200;
-  
+  // Reduce star count further on very small screens for performance
+  const starCount = window.innerWidth < 480 ? 50 : (window.innerWidth < 768 ? 80 : 200);
+  starfield.innerHTML = ''; // Clear existing stars on resize
+  stars = [];
+
   for (let i = 0; i < starCount; i++) {
     const star = document.createElement('div');
     star.className = 'star';
@@ -30,6 +34,8 @@ function createStarfield() {
 
 // Interactive Starfield Parallax
 window.addEventListener('mousemove', (e) => {
+  if (isTouchDevice) return; // Skip heavy DOM updates on mobile touch
+
   if (!mouseParallaxTick) {
     window.requestAnimationFrame(() => {
       const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
@@ -99,6 +105,7 @@ const observer = new IntersectionObserver((entries) => {
       if (h2 && !h2.dataset.scrambled) {
         scrambleText(h2);
         h2.dataset.scrambled = "true";
+        observer.unobserve(entry.target); // Performance: stop observing once triggered
       }
     }
   });
@@ -278,10 +285,15 @@ prevBtn.addEventListener('click', () => {
   updateSlider();
 });
 
-// Recalculate slider on resize to prevent alignment issues
+// Recalculate slider on resize with debounce
+let resizeTimer;
 window.addEventListener('resize', () => {
-  updateSlider();
-});
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    createStarfield(); // Re-generate stars for new resolution
+    updateSlider();
+  }, 250);
+}); 
 
 // Touch Support for Slider
 let touchStartX = 0;
@@ -316,6 +328,29 @@ filterBtns.forEach(btn => {
       }
     });
   });
+});
+
+// Image Viewer Functionality for Certificates
+const imageModal = document.getElementById('image-modal');
+const fullImage = document.getElementById('full-image');
+const closeImage = document.querySelector('.close-image');
+
+document.querySelectorAll('.cert-card img').forEach(img => {
+  img.style.cursor = 'pointer'; // Make it obvious it's clickable
+  img.addEventListener('click', () => {
+    imageModal.style.display = 'block';
+    fullImage.src = img.src;
+  });
+});
+
+closeImage.addEventListener('click', () => {
+  imageModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === imageModal) {
+    imageModal.style.display = 'none';
+  }
 });
 
 // Auto-play (optional)

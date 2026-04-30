@@ -41,7 +41,7 @@
       <p>Robotics | Computer Vision | PC Troubleshooting | Vibe Coding | Vlogger</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
-        <button class="btn-secondary" id="view-cv-btn">Download CV</button>
+        <button class="btn-secondary" id="view-cv-btn" aria-label="Unlock and Download CV">Download CV</button>
       </div>
     </div>
   </section>
@@ -204,10 +204,17 @@
     <p>A collection of my professional certifications and achievements.</p>
 
     <div class="certifications-slider">
-      <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-      <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+      <button class="slider-btn prev-btn" aria-label="Previous Certificate"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn next-btn" aria-label="Next Certificate"><i class="fas fa-chevron-right"></i></button>
 
       <div class="certificates-container">
+         <div class="cert-card">
+          <img src="assets/img/IT-Specialist-PYTHON.jpg" alt="IT-Specialist-Python" loading="lazy" />
+          <div class="cert-info">
+            <h3>IT-Specialist-Python</h3>
+            <p>Issued by Certiport, CertNexus, Pearson | April 30, 2026</p>
+          </div>
+        </div>
          <div class="cert-card">
           <img src="assets/img/cert10.png" alt="Certificate 10" loading="lazy" />
           <div class="cert-info">
@@ -310,7 +317,7 @@
       </div>
       <div class="modal-body">
         <input type="password" id="cv-password" placeholder="Password" class="password-input" />
-        <button id="submit-password" class="btn-primary">Unlock CV</button>
+        <button id="submit-password" class="btn-primary" aria-label="Submit Password">Unlock CV</button>
         <p class="error-msg" id="error-msg"></p>
        
         <p class="contact-owner-msg" id="contact-owner-msg" style="display: none;">
@@ -321,6 +328,20 @@
       </div>
     </div>
   </div>
+
+  <!-- Image Viewer Modal -->
+  <div id="image-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Certificate View</h3>
+        <span class="close-image" style="float: right; cursor: pointer; font-size: 2rem; line-height: 1;">&times;</span>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 10px;">
+        <img id="full-image" src="" alt="Full Certificate View" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);" />
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>© <span id="year"></span> Cel Rick D Almario. All rights reserved.</p>
