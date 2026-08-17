@@ -422,10 +422,8 @@ body::before {
 .dataset-card {
   background: rgba(26, 26, 26, 0.8);
   border-radius: 15px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  padding: 1.5rem;
+  text-align: left;
   transition: all 0.4s;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   border: 1px solid rgba(255,255,255,0.05);
@@ -434,18 +432,8 @@ body::before {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(102,126,234,0.4);
 }
-.dataset-img {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
-.dataset-card:hover .dataset-img {
-  transform: scale(1.05);
-}
 .dataset-info {
-  padding: 1.5rem;
+  padding: 0;
   text-align: left;
 }
 .dataset-info h3 {
