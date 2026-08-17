@@ -1,15 +1,15 @@
 Cel Rick D Almario – Portfolio & Tech Hub
 Live Site: https://iicellxx.github.io (or your deployed link)
-Robotics | Computer Vision | AI Dataset Creator | PC Troubleshooting Expert | Tech Vlogger
+Robotics | Computer Vision | AI Dataset Creator | PC Troubleshooting Expert
 Hey, I'm Kuya Cel from Laguna, Philippines
-I build ESP32 robots, train custom YOLOv8 models on Roboflow, create emotion-detection datasets, and fix/upgrade PCs for a living — all while vlogging every repair and project on Facebook.
+I build ESP32 robots, train custom YOLOv8 models on Roboflow, create emotion-detection datasets, and fix/upgrade PCs for a living.
 What I Do
 
 Real-time AI projects (SentiVision – emotion analysis from CCTV, Fire Alarm CV with YOLOv12)
 Custom Face Emotion Detection dataset (10k+ images, public on Roboflow)
 WiFi-controlled robots with ESP32 + RemoteXY
 Full-stack PC repair: OS reinstalls, SSD/RAM upgrades, cloning, lightweight Windows for low-spec PCs, remote TeamViewer support
-Vlogging every fix and project on Facebook
+Custom AI & Robotics Projects
 
 Tech Stack & Tools
 Python • Flask • YOLOv8/v12 • OpenCV • Roboflow • ESP32 • Arduino • JavaScript • Git • Windows/Linux • Hardware Upgrades
@@ -32,9 +32,9 @@ Custom AI & Robotics Projects
 Find Me
 
 GitHub: github.com/iiCellxx
-Facebook (vlogs): facebook.com/cellrhick
+Facebook: facebook.com/cellrhick
 Email: almariocelrick@gmail.com
 Phone: +63 939 140 0256
 
 Always open for collaborations, PC repairs, or AI projects, and robotics gigs in Laguna and nearby areas!
-#KuyaCel #TechVlogger #Robotics #ComputerVision #PCRepair #Philippines
+#KuyaCel #Robotics #ComputerVision #PCRepair #Philippines
