@@ -424,7 +424,7 @@ body::before {
   border-radius: 15px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   transition: all 0.4s;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
